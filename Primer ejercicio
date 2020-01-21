@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace trianguloUno
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Por favor escriba un angulo z");
+            double z = double.Parse(Console.ReadLine());
+            Console.WriteLine("Por favor escriba otro angulo y");
+            double y = double.Parse(Console.ReadLine());
+            double t = Math.Sqrt((z*z) + (y*y));
+            double a = Math.Asin(y / t) * 180 / Math.PI;
+            double c = Math.Asin(z / t) * 180 / Math.PI;
+            Console.WriteLine("El angulo a es: " + a);
+            Console.WriteLine("El angulo c es: " + c);
+            Console.WriteLine("El valor de la hipotenusa t es: " + t);
+        }
+    }
+}
