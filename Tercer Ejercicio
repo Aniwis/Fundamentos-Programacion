@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tiodio
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double z = double.Parse(Console.ReadLine());
+            double c = double.Parse(Console.ReadLine());
+            double a = 180 - 90 - c;
+            double t = z / Math.Sin(c * Math.PI / 180);
+            double y = Math.Sqrt((t*t)-(z*z));
+            Console.WriteLine("El valor de la hipotenusa es: " + t);
+            Console.WriteLine("El angulo a es: " + a);
+            Console.WriteLine("El valor del cateto y es: " + y);
+        }
+    }
+}
