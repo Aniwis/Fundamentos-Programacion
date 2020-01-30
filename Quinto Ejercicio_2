@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tarifas_alv
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* Tarifa A= 3.400
+            Tarifa B= 13.500
+            Tarifa C= 35.600 */
+            
+            Console.WriteLine("Ingrese el número de SMMLV que recibe en su salario");
+            double salario = double.Parse(Console.ReadLine());
+
+            if (salario < 2)
+            {
+                Console.WriteLine("El valor de su cuota moderadora es de 3.400; Tarifa A");
+            }
+            else if (2 <= salario && salario <= 4)
+            {
+                Console.WriteLine("El valor de su cuota moderadora es de 13.500; Tarifa B");
+            }
+           else
+            {
+                Console.WriteLine("El valor de su cuota moderadora es de 35.600; Tarifa C");
+            }
+        }
+    }
+}
