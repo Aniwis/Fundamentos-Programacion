@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tarifas_alv
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Escriba el número de SMMLV que recibe en su salario");
+            double salario = double.Parse(Console.ReadLine());
+            if (salario < 2)
+            {
+                Console.WriteLine("Tarifa A");
+            }
+            else if (salario <= 3)
+            {
+                Console.WriteLine("Tarifa B");
+            }
+            else
+            {
+                Console.WriteLine("Tarifa C");
+            }
+        }
+    }
+}
