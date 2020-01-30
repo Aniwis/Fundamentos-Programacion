@@ -21,7 +21,7 @@ namespace tarifas_alv
             {
                 Console.WriteLine("El valor de su cuota moderadora es de 3.400; Tarifa A");
             }
-            else if (2 <= salario && salario <= 4)
+            else if (2 <= salario && salario < 4)
             {
                 Console.WriteLine("El valor de su cuota moderadora es de 13.500; Tarifa B");
             }
