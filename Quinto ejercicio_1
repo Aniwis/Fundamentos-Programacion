@@ -16,7 +16,7 @@ namespace tarifas_alv
             {
                 Console.WriteLine("Tarifa A");
             }
-            else if (salario <= 3)
+            else if (2 <= salario & & salario < 4)
             {
                 Console.WriteLine("Tarifa B");
             }
