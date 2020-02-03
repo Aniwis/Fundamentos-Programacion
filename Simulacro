@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //variables
+            Console.WriteLine("Escriba el valor de su salario mensual:");
+            double salario_mensual = double.Parse(Console.ReadLine());
+            Console.WriteLine("Si su contrato es independiente escriba 1, de lo contrario escriba 2:");
+            int contrato = int.Parse(Console.ReadLine());
+            double porcentaje_robable = 0;
+            double valor_riesgo = 0;
+            double pension = 0;
+            double eps = 0;
+            int riesgo = 0;
+            double salario_anual=0;
+            double salario_real_m = 0;
+            double prima = 0;
+            //porcentaje de cotización
+            if (salario_mensual <=877803)
+            {
+               porcentaje_robable = salario_mensual ;
+            }
+            else
+            {
+               porcentaje_robable = salario_mensual * 0.4;
+            }
+
+            //Independiente 
+            if (contrato == 1)
+            {
+                Console.WriteLine("Escriba el nivel de riesgo que tiene su trabajo entre el 1 a 5");
+                riesgo = int.Parse(Console.ReadLine());
+                pension = porcentaje_robable * 0.16;
+                eps = porcentaje_robable * 0.125;
+                prima = 0;
+                //riesgo
+                if (riesgo == 1)
+                {
+                   valor_riesgo = porcentaje_robable * 0.00522;
+                }
+                else if (riesgo == 2)
+                {
+                    valor_riesgo = porcentaje_robable * 0.01044;
+                }
+                else if (riesgo == 3)
+                {
+                    valor_riesgo = porcentaje_robable * 0.02436;
+                }
+                else if (riesgo == 4)
+                {
+                    valor_riesgo = porcentaje_robable * 0.04350;
+                }
+                else
+                {
+                    valor_riesgo = porcentaje_robable * 0.06960;
+                }
+
+            }
+
+            //dependiente
+            if (contrato == 2)
+            {
+                pension = porcentaje_robable * 0.04;
+                eps = porcentaje_robable * 0.04;
+                prima = salario_mensual;
+            }
+
+            //salidas
+            double deducciones = pension + eps + valor_riesgo;
+            salario_real_m = salario_mensual - deducciones;
+            salario_anual = (salario_real_m * 12) + prima;
+            Console.WriteLine("Su salario real mensual es: " + salario_real_m);
+            Console.WriteLine("Su salario anual es: " + salario_anual);
+        }
+
+    }
+} 
