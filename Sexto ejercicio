@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int partido_1 = 20, partido_2 = 16, votos_blanco = 5, voto_anulados = 36, pobl_edades = 477, p_mayor = 24;
+            int votos = partido_1 + partido_2 + votos_blanco + voto_anulados;
+            
+            bool a = votos > pobl_edades;
+            bool b = partido_1 - partido_2 < pobl_edades * 0.1;
+            bool c = votos < pobl_edades * 0.3;
+
+            if ((a || b) && c)
+            {
+                Console.WriteLine("Repitan las votaciones");
+             }
+            else
+            {
+                if (partido_1 < partido_2) Console.WriteLine("Congrats, ganó b");
+                else if (partido_1 > partido_2) Console.WriteLine("Congrats, ganó a");
+              
+            }
+
+
+
+        }
+    }
+}
