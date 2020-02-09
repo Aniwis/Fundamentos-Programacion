@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double salario = 1000000;
+            int contrato = 2;
+            double smmlv = 877803, arl = 0, eps = 0, pension = 0, prima = 0;
+            double baseCotizacion = 0.4 * salario;
+            if (baseCotizacion < smmlv) baseCotizacion = smmlv;
+
+            switch (contrato)
+            {
+                case 1:
+                    eps = 0.04 * baseCotizacion;
+                    pension = 0.04 * baseCotizacion;
+                    prima = salario;
+                    break;
+                case 2:
+                    eps = 0.125 * baseCotizacion;
+                    pension = 0.16 * baseCotizacion;
+                    int riesgo = 1;
+                    switch (riesgo)
+                    {
+                        case 1:
+                            arl = 0.522 / 100;
+                            break;
+                        case 2:
+                            arl = 1.044 / 100;
+                            break;
+                        case 3:
+                            arl = 2.436 / 100;
+                            break;
+                        case 4:
+                            arl = 4.350 / 100;
+                            break;
+                        default:
+                            arl = 6.960 / 100;
+                            break;
+                    }
+                    break;
+            }
+            double salarioReal = salario - (arl * baseCotizacion + pension + eps);
+            double salarioAnual = salarioReal * 12 + prima;
+            Console.WriteLine("salario Anual " + salarioAnual);
+            Console.WriteLine("salario real " + salarioReal);
+        }
+    }
+}
