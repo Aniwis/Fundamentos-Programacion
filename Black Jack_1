@@ -28,6 +28,7 @@ namespace BlackJack
                 if (puntos > 21) {
                     Console.WriteLine("Perdiste");
                     Console.WriteLine("Su total fue: " + puntos);
+                    continuar = "n";
                 }
                 else
                 {
