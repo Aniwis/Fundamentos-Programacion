@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlackJack
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random aleatorio = new Random();
+            int puntos = 0, carta = 0, jugadores = 0, jugador = 0, punt_Max=0, punt_Min=100;
+            string continuar = "s", nombre_Max= "i", nombre_Min="j", nombre="t";
+
+            Console.WriteLine("Ingrese el número de jugadores (entre 2 y 5)");
+            jugadores = int.Parse(Console.ReadLine());
+            while (jugadores <2 || jugadores > 5)
+            {
+                Console.WriteLine("Error, ingrese un número de jugadores (entre 2 y 5)");
+                jugadores = int.Parse(Console.ReadLine());
+            }
+            while (jugador < jugadores)
+            {
+                //Juego 
+                Console.WriteLine(" Bienvenido jugador " + jugador + 1);
+                Console.WriteLine("Cual es su nombre? ");
+                nombre = Console.ReadLine();
+                carta = aleatorio.Next(1, 11);
+                Console.WriteLine("Su primera carta es: " + carta);
+                puntos += carta;
+
+                while (continuar == "s" && puntos <= 21)
+                {
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Su carta es: " + carta);
+                    puntos += carta;
+                    Console.WriteLine("Su puntaje es: " + puntos);
+
+                    if (puntos > 21)
+                    {
+                        Console.WriteLine("Perdiste");
+                        Console.WriteLine("Su total fue: " + puntos);
+                        continuar = "n";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Desea continuar? (s/n) ");
+                        continuar = Console.ReadLine();
+                        while (continuar != "s" || continuar!= "n")
+                        {
+                            Console.WriteLine("Escriba s o n poh favoh");
+                            break;
+                        }
+                    }
+
+                }
+
+                if (punt_Max < puntos) {
+                    punt_Max = puntos;
+                    nombre_Max = nombre;
+            }
+                else if (punt_Min > puntos)
+                {
+                    punt_Min = puntos;
+                    nombre_Min = nombre;
+                }
+            }
+
+        }
+    }
+}
